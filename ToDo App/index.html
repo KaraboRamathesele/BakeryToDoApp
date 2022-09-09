@@ -34,7 +34,8 @@
     <form id="order-form">
       <div id="addNew" class="form-group mt-4">
         <label for="order">Order Type</label>
-        <input type="text" id="order" class="form-control" />
+        <input type="text" id="order" class="form-control" data-bs-toggle="modal"
+        data-bs-target="#modal_form" />
       </div>
       <div class="form-group mt-4">
         <label for="customer">Customer Name</label>
@@ -46,11 +47,58 @@
       </div>
       <input
         type="submit"
-        value="Add To Do"
+        value="Add To Bake"
         class="btn btn-primary btn-block btn-lg mt-4"
       />
     </form>
     <!-- End of todo input -->
+
+    <!-- Modal -->
+    <form
+    class="modal fade"
+    id="modal_form"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Baking Details</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p>What must you make?</p>
+          <input placeholder="eg. Scones" class="form-control" type="text" name="" id="text-input" />
+          <div id="msg"></div>
+
+          <p class="mt-4">Description</p>
+          <textarea
+            placeholder="Quantity"
+            class="form-control mt-2"
+            name=""
+            id="textarea"
+            cols="30"
+            rows="5"
+          ></textarea>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Bake It</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!-- End of Modal -->
 
     <!-- Todo output table -->
     <table class="table table-striped mt-5">
@@ -59,9 +107,10 @@
             <th>Order</th>
             <th>Customer Name</th>
             <th>Date</th>
-            <th></th>
+            <!-- checked -->
             <th></th>
             <!-- delete -->
+            <th></th>
           </tr>
         </thead>
         <tbody id="order-list"></tbody>
